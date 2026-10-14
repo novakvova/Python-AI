@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вступ до штучного інтелекту та науки про дані</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .title-page {
+            text-align: center;
+            padding: 60px 0;
+            border-bottom: 3px solid #1F4788;
+            margin-bottom: 40px;
+        }
+        
+        .title-page h1 {
+            font-size: 2.5em;
+            color: #1F4788;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+        
+        .title-page h2 {
+            font-size: 1.8em;
+            color: #1F4788;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+        
+        .title-page p {
+            font-size: 1.1em;
+            color: #666;
+            margin: 15px 0;
+            font-style: italic;
+        }
+        
+        h1 {
+            color: #1F4788;
+            font-size: 2.2em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3D6BA3;
+        }
+        
+        h2 {
+            color: #2E5C8A;
+            font-size: 1.7em;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 10px;
+            border-left: 4px solid #2E5C8A;
+        }
+        
+        h3 {
+            color: #3D6BA3;
+            font-size: 1.3em;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+            font-size: 1em;
+        }
+        
+        ul {
+            margin-left: 40px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        strong {
+            color: #1F4788;
+            font-weight: 700;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95em;
+        }
+        
+        th {
+            background-color: #1F4788;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border: 1px solid #ddd;
+        }
+        
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        tr:hover {
+            background-color: #f0f5fa;
+        }
+        
+        .toc {
+            background-color: #f0f5fa;
+            border-left: 4px solid #1F4788;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .toc h2 {
+            color: #1F4788;
+            border-left: none;
+            padding-left: 0;
+            margin-top: 0;
+        }
+        
+        .toc ul {
+            margin-left: 20px;
+        }
+        
+        .highlight {
+            background-color: #fffacd;
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        
+        .info-box {
+            background-color: #e8f4f8;
+            border-left: 4px solid #2E5C8A;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .warning-box {
+            background-color: #fff3cd;
+            border-left: 4px solid #ff9800;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .code-block {
+            background-color: #f4f4f4;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+            font-size: 0.9em;
+        }
+        
+        .page-break {
+            page-break-after: always;
+            margin: 40px 0;
+            border-top: 3px dashed #ccc;
+            padding-top: 40px;
+        }
+        
+        .conclusion {
+            background-color: #f0f5fa;
+            padding: 20px;
+            margin-top: 40px;
+            border-radius: 4px;
+            border: 2px solid #1F4788;
+        }
+        
+        .conclusion h2 {
+            border-left: none;
+            padding-left: 0;
+            margin-top: 0;
+        }
+        
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .container {
+                box-shadow: none;
+                padding: 20px;
+            }
+            .page-break {
+                page-break-after: always;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Титульна сторінка -->
+        <div class="title-page">
+            <h1>ВСТУП ДО ШТУЧНОГО ІНТЕЛЕКТУ</h1>
+            <h1 style="margin-top: 0;">ТА НАУКИ ПРО ДАНІ</h1>
+            <p>Комплексний навчальний посібник</p>
+            <p style="margin-top: 50px; font-size: 1.2em;">2026</p>
+        </div>
+        
+        <!-- Зміст -->
+        <div class="toc">
+            <h2>Зміст</h2>
+            <ul>
+                <li>Модуль 1: Основи штучного інтелекту та науки про дані</li>
+                <li>Модуль 2: AI та ML — визначення та відмінності</li>
+                <li>Модуль 3: Типи алгоритмів навчання</li>
+                <li>Модуль 4: Датасети та ознаки</li>
+                <li>Модуль 5: Jupyter Notebook — практична робота</li>
+            </ul>
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- МОДУЛЬ 1 -->
+        <h1>Модуль 1: Основи штучного інтелекту та науки про дані</h1>
+        
+        <h2>1.1 Історія розвитку штучного інтелекту</h2>
+        <p>Штучний інтелект (ШІ) — одна з найдинамічніших галузей комп'ютерних наук. Його історія налічує понад 70 років:</p>
+        <ul>
+            <li><strong>1950-1960-ті роки (Заснування):</strong> Дартмутська конференція (1956) офіційно створила галузь ШІ. Ранні системи могли розв'язувати простенькі логічні завдання.</li>
+            <li><strong>1966-1974 роки (Перша зима ШІ):</strong> Гіпотези було переоцінено, фінансування скоротилось.</li>
+            <li><strong>1980-1987 роки (Бум експертних систем):</strong> Системи, які кодували знання експертів, знайшли практичне застосування.</li>
+            <li><strong>1987-1993 роки (Друга зима ШІ):</strong> Експертні системи не виправдали очікувань.</li>
+            <li><strong>1993-2011 роки (Статистичні методи):</strong> Зростання обчислювальних потужностей дозволило нейромережам повернутись. Deep Blue переміг Каспарова в шахах (1997).</li>
+            <li><strong>2011-дотепер (Глибоке навчання та Big Data):</strong> Революція глибоких нейромереж. AlphaGo перемагає в Го (2016). ChatGPT запущено (2022).</li>
+        </ul>
+        
+        <h2>1.2 Поняття штучного інтелекту</h2>
+        <p><strong>Штучний інтелект (ШІ)</strong> — це галузь комп'ютерних наук, спрямована на створення систем, здатних виконувати завдання, які зазвичай потребують людської розумової діяльності.</p>
+        
+        <h3>Основні характеристики ШІ:</h3>
+        <ul>
+            <li>Розпізнавання образів та мови</li>
+            <li>Прийняття рішень на основі даних</li>
+            <li>Обробка природної мови</li>
+            <li>Навчання на основі досвіду</li>
+            <li>Адаптація до нових ситуацій</li>
+        </ul>
+        
+        <h3>Рівні ШІ:</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Рівень</th>
+                    <th>Опис</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Слабий ШІ</strong></td>
+                    <td>Система, розроблена для вирішення конкретного завдання. Більшість існуючих ШІ систем — це слабкий ШІ.</td>
+                </tr>
+                <tr>
+                    <td><strong>Сильний ШІ</strong></td>
+                    <td>Гіпотетична система з людськими когнітивними здібностями. Може переносити знання між завданнями.</td>
+                </tr>
+                <tr>
+                    <td><strong>Надлюдський ШІ</strong></td>
+                    <td>Це матеріал науково-фантастичних творів, поки що не існує.</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>1.3 Поняття науки про дані</h2>
+        <p><strong>Наука про дані (Data Science)</strong> — міждисциплінарна галузь, яка поєднує статистику, програмування та предметні знання для вилучення цінних висновків з даних.</p>
+        
+        <h3>Компоненти науки про дані:</h3>
+        <ul>
+            <li>Збирання даних</li>
+            <li>Очищення та підготовка</li>
+            <li>Дослідницький аналіз</li>
+            <li>Моделювання та прогнозування</li>
+            <li>Комунікація результатів</li>
+        </ul>
+        
+        <h2>1.4 Поняття машинного навчання</h2>
+        <p><strong>Машинне навчання (Machine Learning, ML)</strong> — підгалузь ШІ, яка дозволяє системам навчатись і поліпшуватись на основі даних без явного програмування.</p>
+        <p><strong>Основна ідея:</strong> замість того, щоб запрограмувати правила явно, ми навчаємо алгоритм розпізнавати закономірності в даних.</p>
+        <div class="info-box">
+            <strong>Приклад:</strong> замість написання правил для розпізнавання котів, ми показуємо алгоритму тисячі картинок котів, і він вчиться розпізнавати їх самостійно.
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- МОДУЛЬ 2 -->
+        <h1>Модуль 2: Artificial Intelligence та Machine Learning</h1>
+        
+        <h2>2.1 Що таке Artificial Intelligence?</h2>
+        <p><strong>Artificial Intelligence (AI)</strong> — це широка галузь, орієнтована на створення систем, здатних виконувати завдання, які потребують розуму:</p>
+        <ul>
+            <li>Розробка роботів</li>
+            <li>Обробка природної мови (NLP)</li>
+            <li>Комп'ютерний зір</li>
+            <li>Рекомендаційні системи</li>
+            <li>Машинне навчання</li>
+        </ul>
+        
+        <h2>2.2 Що таке Machine Learning?</h2>
+        <p><strong>Machine Learning</strong> — це підмножина AI, яка зосереджена на алгоритмах, що навчаються на даних.</p>
+        <p>ML систем не потрібно явно програмувати для кожного сценарію — вони вивчають закономірності та адаптуються.</p>
+        
+        <h2>2.3 Відмінність AI та ML</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Аспект</th>
+                    <th>AI</th>
+                    <th>ML</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Галузь</strong></td>
+                    <td>Широка галузь</td>
+                    <td>Підгалузь AI</td>
+                </tr>
+                <tr>
+                    <td><strong>Підхід</strong></td>
+                    <td>Може включати явне програмування</td>
+                    <td>Навчання з даних</td>
+                </tr>
+                <tr>
+                    <td><strong>Приклад</strong></td>
+                    <td>Шахові алгоритми, чат-боти</td>
+                    <td>Розпізнання образів, прогноз</td>
+                </tr>
+                <tr>
+                    <td><strong>Гнучкість</strong></td>
+                    <td>Більш жорсткі правила</td>
+                    <td>Адаптується до нових даних</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="page-break"></div>
+        
+        <!-- МОДУЛЬ 3 -->
+        <h1>Модуль 3: Види алгоритмів і сфери їхнього застосування</h1>
+        
+        <h2>3.1 Навчання з учителем (Supervised Learning)</h2>
+        <p>Алгоритми навчаються на основі помічених даних — кожен вхід має відповідний правильний вихід.</p>
+        <p><strong>Характеристика:</strong> потребує великої кількості помічених прикладів для навчання.</p>
+        
+        <h3>Два основних типи завдань:</h3>
+        <ul>
+            <li><strong>Регресія:</strong> передбачення неперервного значення (напр., ціна дому)</li>
+            <li><strong>Класифікація:</strong> категоризація на класи (напр., спам або не спам)</li>
+        </ul>
+        
+        <h3>Приклади алгоритмів:</h3>
+        <ul>
+            <li>Лінійна регресія</li>
+            <li>Логістична регресія</li>
+            <li>Дерева рішень</li>
+            <li>Випадкові ліси</li>
+            <li>Метод опорних векторів (SVM)</li>
+        </ul>
+        
+        <h3>Сфери застосування:</h3>
+        <ul>
+            <li>Медицина: діагностика хвороб</li>
+            <li>Фінанси: оцінка кредитного ризику</li>
+            <li>E-commerce: рекомендація товарів</li>
+            <li>Розпізнання образів і тексту</li>
+        </ul>
+        
+        <h2>3.2 Навчання без учителя (Unsupervised Learning)</h2>
+        <p>Алгоритми працюють з непомічені даними, шукаючи приховані закономірності та структури.</p>
+        <p><strong>Характеристика:</strong> алгоритм повинен самостійно виявити цікаві закономірності.</p>
+        
+        <h3>Два основних типи завдань:</h3>
+        <ul>
+            <li><strong>Кластеризація:</strong> групування подібних об'єктів</li>
+            <li><strong>Зниження розмірності:</strong> скорочення кількості ознак</li>
+        </ul>
+        
+        <h3>Приклади алгоритмів:</h3>
+        <ul>
+            <li>K-means кластеризація</li>
+            <li>Ієрархічна кластеризація</li>
+            <li>Аналіз головних компонент (PCA)</li>
+            <li>DBSCAN</li>
+        </ul>
+        
+        <h3>Сфери застосування:</h3>
+        <ul>
+            <li>Сегментація клієнтів</li>
+            <li>Виявлення аномалій</li>
+            <li>Стиснення даних</li>
+            <li>Вивчення структури даних</li>
+        </ul>
+        
+        <h2>3.3 Навчання з підкріпленням (Reinforcement Learning)</h2>
+        <p>Агент навчається через взаємодію з середовищем, отримуючи награди або штрафи.</p>
+        <p><strong>Характеристика:</strong> агент повинен знайти оптимальну стратегію дій для максимізації накопленої награди.</p>
+        
+        <h3>Ключові концепції:</h3>
+        <ul>
+            <li><strong>Агент:</strong> система, яка приймає рішення</li>
+            <li><strong>Середовище:</strong> світ, з яким взаємодіє агент</li>
+            <li><strong>Дія:</strong> що робить агент</li>
+            <li><strong>Награда:</strong> оцінка за дію</li>
+            <li><strong>Політика:</strong> стратегія агента</li>
+        </ul>
+        
+        <h3>Приклади алгоритмів:</h3>
+        <ul>
+            <li>Q-Learning</li>
+            <li>Policy Gradient</li>
+            <li>Actor-Critic методи</li>
+        </ul>
+        
+        <h3>Сфери застосування:</h3>
+        <ul>
+            <li>Ігри (AlphaGo, гри для однієї особи)</li>
+            <li>Робототехніка</li>
+            <li>Автономні автомобілі</li>
+            <li>Управління ресурсами</li>
+            <li>Оптимізація маршрутів</li>
+        </ul>
+        
+        <div class="page-break"></div>
+        
+        <!-- МОДУЛЬ 4 -->
+        <h1>Модуль 4: Датасети та ознаки</h1>
+        
+        <h2>4.1 Поняття датасета</h2>
+        <p><strong>Датасет (Dataset)</strong> — набір даних, який використовується для навчання, валідації та тестування машинних моделей.</p>
+        <p>Датасет складається з рядків (спостережень) та стовпців (ознак/особливостей).</p>
+        
+        <h2>4.2 Приклад датасета</h2>
+        <p><strong>Приклад: Датасет ціни будинків</strong></p>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>м²</th>
+                    <th>Кімнат</th>
+                    <th>Роки</th>
+                    <th>Паркинг</th>
+                    <th>Басейн</th>
+                    <th>Гараж</th>
+                    <th style="background-color: #D7554F;">Ціна ($)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>120</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>Так</td>
+                    <td>Ні</td>
+                    <td>Так</td>
+                    <td style="background-color: #ffe0de;">250000</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>95</td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>Ні</td>
+                    <td>Ні</td>
+                    <td>Ні</td>
+                    <td style="background-color: #ffe0de;">180000</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>150</td>
+                    <td>4</td>
+                    <td>8</td>
+                    <td>Так</td>
+                    <td>Так</td>
+                    <td>Так</td>
+                    <td style="background-color: #ffe0de;">320000</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>4.3 Ознаки в датасеті</h2>
+        <p><strong>Ознаки (Features)</strong> — це окремі змінні або атрибути, які описують кожен об'єкт у датасеті.</p>
+        <p>У прикладі з будинками ознаками є:</p>
+        <ul>
+            <li>Площа (м²)</li>
+            <li>Кількість кімнат</li>
+            <li>Вік будинку (роки)</li>
+            <li>Наявність паркингу</li>
+            <li>Наявність басейну</li>
+            <li>Наявність гаража</li>
+        </ul>
+        
+        <h3>Типи ознак:</h3>
+        <ul>
+            <li><strong>Числові (Numerical):</strong> площа, вік, кількість кімнат</li>
+            <li><strong>Категоріальні (Categorical):</strong> наявність паркингу (Так/Ні)</li>
+            <li><strong>Порядкові (Ordinal):</strong> рівень якості (низька, середня, висока)</li>
+        </ul>
+        
+        <h2>4.4 Поняття цільової ознаки</h2>
+        <p><strong>Цільова ознака (Target Feature / Label)</strong> — це та ознака, яку ми хочемо передбачити з використанням інших ознак.</p>
+        <p>У прикладі з будинками — це стовпець "Ціна ($)".</p>
+        <p>Всі інші ознаки називаються "вхідними ознаками" (input features).</p>
+        <p>Модель навчається, щоб із заданих вхідних ознак передбачити цільову ознаку.</p>
+        
+        <div class="page-break"></div>
+        
+        <!-- МОДУЛЬ 5 -->
+        <h1>Модуль 5: Jupyter Notebook та Jupyter Lab</h1>
+        
+        <h2>5.1 Що таке Jupyter Notebook?</h2>
+        <p><strong>Jupyter Notebook</strong> — це інтерактивне веб-середовище для написання та запуску коду, створення документацій та візуалізацій.</p>
+        <p>Це універсальний інструмент для дослідників, аналітиків даних та науковців.</p>
+        <p>Назва "Jupyter" розшифровується як <strong>Ju</strong>lia, <strong>Pyt</strong>hon та <strong>R</strong> — три мови програмування, які підтримуються.</p>
+        
+        <h2>5.2 Що таке Jupyter Lab?</h2>
+        <p><strong>Jupyter Lab</strong> — це нова версія Jupyter, яка надає більш розширене середовище розробки.</p>
+        
+        <h3>Переваги Jupyter Lab:</h3>
+        <ul>
+            <li>Багатовіконний інтерфейс</li>
+            <li>Краща керування файлами</li>
+            <li>Вбудовані термінали та текстові редактори</li>
+            <li>Розширення та плагіни</li>
+            <li>Темне та світле оформлення</li>
+        </ul>
+        
+        <h2>5.3 Нотбуки та комірки</h2>
+        <p>Notebook складається з комірок (cells). Комірки можуть містити:</p>
+        <ul>
+            <li><strong>Код (Code cells):</strong> код мовою Python (або іншою)</li>
+            <li><strong>Текст (Markdown cells):</strong> форматований текст, заголовки, списки</li>
+            <li><strong>Raw text:</strong> неформатований текст</li>
+        </ul>
+        
+        <h3>Приклад структури нотбука:</h3>
+        <ul>
+            <li>Markdown комірка: Заголовок "Аналіз даних ціни будинків"</li>
+            <li>Code комірка: імпорт бібліотек</li>
+            <li>Code комірка: завантаження датасету</li>
+            <li>Code комірка: вивід статистики</li>
+            <li>Markdown комірка: висновки</li>
+        </ul>
+        
+        <h2>5.4 Основні команди для роботи з комірками</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Команда</th>
+                    <th>Сполучення клавіш</th>
+                    <th>Опис</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Запустити комірку</td>
+                    <td><strong>Ctrl + Enter</strong></td>
+                    <td>Виконати код в комірці</td>
+                </tr>
+                <tr>
+                    <td>Запустити та перейти далі</td>
+                    <td><strong>Shift + Enter</strong></td>
+                    <td>Виконати та вибрати наступну</td>
+                </tr>
+                <tr>
+                    <td>Нова комірка знизу</td>
+                    <td><strong>Alt + Enter</strong></td>
+                    <td>Додати комірку під поточною</td>
+                </tr>
+                <tr>
+                    <td>Копіювання комірки</td>
+                    <td><strong>Ctrl + C</strong></td>
+                    <td>Скопіювати обрану комірку</td>
+                </tr>
+                <tr>
+                    <td>Вставити комірку</td>
+                    <td><strong>Ctrl + V</strong></td>
+                    <td>Вставити скопійовану комірку</td>
+                </tr>
+                <tr>
+                    <td>Видалити комірку</td>
+                    <td><strong>D, D (двічі)</strong></td>
+                    <td>Видалити обрану комірку</td>
+                </tr>
+                <tr>
+                    <td>Режим редагування</td>
+                    <td><strong>Enter</strong></td>
+                    <td>Перейти в режим редагування</td>
+                </tr>
+                <tr>
+                    <td>Режим вибору</td>
+                    <td><strong>Esc</strong></td>
+                    <td>Вийти з редагування</td>
+                </tr>
+                <tr>
+                    <td>Змінити на Markdown</td>
+                    <td><strong>M</strong></td>
+                    <td>Конвертувати комірку в текст</td>
+                </tr>
+                <tr>
+                    <td>Змінити на Code</td>
+                    <td><strong>Y</strong></td>
+                    <td>Конвертувати комірку в код</td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <h2>5.5 Приклад Jupyter Notebook</h2>
+        <p>Нижче наведено приклад структури простого нотбука для аналізу даних:</p>
+        
+        <h3>Комірка 1 (Markdown):</h3>
+        <div class="code-block">
+# Аналіз датасета ціни будинків
+
+Цей нотбук аналізує дані про ціни будинків та намагається побудувати модель прогнозування.
+        </div>
+        
+        <h3>Комірка 2 (Code):</h3>
+        <div class="code-block">
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+        </div>
+        
+        <h3>Комірка 3 (Code):</h3>
+        <div class="code-block">
+# Завантажити датасет
+data = pd.read_csv('houses.csv')
+print(data.head())  # Вивести перші 5 рядків
+        </div>
+        
+        <h3>Комірка 4 (Code):</h3>
+        <div class="code-block">
+# Статистика датасету
+print(data.describe())  # Описова статистика
+        </div>
+        
+        <h2>5.6 Встановлення та запуск Jupyter</h2>
+        <p>Щоб встановити Jupyter, виконайте команду в терміналі:</p>
+        <div class="code-block">
+pip install jupyter
+        </div>
+        
+        <p>Для запуску Jupyter Notebook:</p>
+        <div class="code-block">
+jupyter notebook
+        </div>
+        
+        <p>Для запуску Jupyter Lab:</p>
+        <div class="code-block">
+jupyter lab
+        </div>
+        
+        <div class="page-break"></div>
+        
+        <!-- ВИСНОВОК -->
+        <div class="conclusion">
+            <h2>Висновок</h2>
+            <p>Цей посібник дав вам основне розуміння штучного інтелекту, науки про дані та машинного навчання. Ви дізналися про:</p>
+            <ul>
+                <li>Історію розвитку ШІ</li>
+                <li>Відмінність між AI та ML</li>
+                <li>Типи алгоритмів навчання</li>
+                <li>Роботу з датасетами та ознаками</li>
+                <li>Основи Jupyter Notebook</li>
+            </ul>
+            
+            <h3>Наступні кроки у вашій навчанні:</h3>
+            <ul>
+                <li>Практикуватися з кодом на Jupyter</li>
+                <li>Вивчати популярні бібліотеки (pandas, scikit-learn, TensorFlow)</li>
+                <li>Брати участь в реальних проектах аналізу даних</li>
+                <li>Вивчати розширені теми (глибоке навчання, обробка природної мови)</li>
+            </ul>
+            
+            <p style="text-align: center; margin-top: 40px; font-size: 1.2em; font-weight: bold; color: #1F4788;">
+                Успіхів у вивченні AI та Data Science! Нехай сало, козаки, козачки та цибуля додають вам сили й натхнення!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
