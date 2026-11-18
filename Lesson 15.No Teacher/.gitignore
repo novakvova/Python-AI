@@ -1,0 +1,7 @@
+.idea
+.venv
+20news_dataset
+20news-bydate.tar.gz
+*.csv
+
+.ipynb_checkpoints
